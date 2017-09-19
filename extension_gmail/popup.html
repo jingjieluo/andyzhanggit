@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="js/jquery-3.2.1.min.js"	type="text/javascript"></script>
+<style>	
+*{
+	margin:0;
+	padding:0;
+	font-family: Arial;
+}
+body {
+	width:450px;
+}
+.email_check{
+	font-size:14px;
+	position: relative;
+	width:50%;
+	float:left;
+}
+.tools{
+	padding:5px;
+	width:40%;
+	float:left;
+}
+.tools input{
+	margin: 5px;
+}
+.result_show{
+	font-size:14px;
+	float:left;
+	position: relative;
+}
+#result{
+	width:100%;
+	word-wrap:break-word;
+}
+.show_area{
+	float:left;
+	position: relative;
+}
+textarea{
+	margin: 5px;
+}
+#balance{
+	font-size:14px;
+	font-weight:bold;
+	float:left;
+}
+</style>
+</head>
+<body>
+	<div class="email_check">
+			<div><span>查询邮箱账号/礼品卡字符：</span></div>
+			<textarea rows="10" cols="25" id="email_check"></textarea>
+			<input type="button" value="查询快递单号" id="gmail_info"/>	
+	</div>
+	<div class="tools">
+			<input type="button" value="计算京东卡余额" id="jd_balance_sum"/>
+			<input type="button" value="提取礼品卡字符" id="gc_cut"/>
+			<input type="button" value="提取美亚发货快递单号" id="amazon_us_tracking"/>
+			<lable id="balance"></lable>
+	</div>
+	
+	<div class="result_show">
+		<div class="show_area">
+			<div><span>对应订单号：</span></div>
+			<textarea rows="10" cols="25" id="result_order_numbers"></textarea>
+			<div><input type="button" value="复制订单号" id="copy_order_numbers"/></div>	
+		</div>		
+		<div class="show_area">
+			<div><span>对应快递单号：</span></div>
+			<textarea rows="10" cols="25" id="result_tracking_numbers"></textarea>
+			<div><input type="button" value="复制快递单号" id="copy_tracking_numbers"/></div>			
+		</div>
+		
+		
+	</div>	
+	<script src="js/popup.js"></script>
+	</body>
+</html>	
