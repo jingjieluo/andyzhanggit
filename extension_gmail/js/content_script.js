@@ -5,6 +5,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
         var string=string_tag[0].innerHTML;
         var p=/id="\w+\@\d{3}\.\w{3}/gi;//match order_emails
         order_emails=string.match(p);
+        console.log(order_emails);
         //order_emails=JSON.stringify(order_emails);
         p=/\>(\d{3}\-\d{7}\-\d{7})\</gi;//match rder_numbers
         order_numbers=string.match(p);
