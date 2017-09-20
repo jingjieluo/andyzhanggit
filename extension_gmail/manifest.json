@@ -1,6 +1,6 @@
 {
 	"manifest_version":2,
-	"name":"Infor Fetch",
+	"name":"Gmail Fetch",
 	"version":"1.0",
 	"description":"邮箱提取邮箱，订单货，快递单号",
 	"browser_action":{
