@@ -12,14 +12,19 @@ gmail_test.onclick=function(){
 			orders.order_numbers[i]=orders.order_numbers[i].replace(/\>|\</gi,"");
 			orders.tracking_numbers[i]=orders.tracking_numbers[i].replace(/\./gi,"");
 		}
-		var email_check=$("#email_check").val();
-		localStorage.email_check=email_check;
+		var check_string=$("#email_check").val();
+		localStorage.email_check=check_string;
 		//alert(email_check+"订单号："+orders.order_numbers[0]+"快递单号："+orders.tracking_numbers[0]);
-		p=/\w+\@\d{3}\.\w{3}/gi;
-		email_check=email_check.match(p);
-		if(!email_check) alert("请输入邮箱");
+		p_email=/\w+\@\d{3}\.\w{3}/gi;
+		email_check=check_string.match(p_email);
+		//alert(email_check);
+		p_order=/\d{3}\-\d{7}\-\d{7}/gi;
+		order_check=check_string.match(p_order);
+		//alert(order_check);
+		if(!(email_check||order_check)) alert("请输入邮箱或订单号");
 		order_numbers_string="";
 		tracking_numbers_string="";
+		if(email_check){
 			for(i=0;i<email_check.length;i++){
 				var result_order_numbers=new Array,result_tracking_numbers=new Array;
 				if(orders.emails.indexOf(email_check[i])!='-1'){
@@ -34,6 +39,24 @@ gmail_test.onclick=function(){
 				order_numbers_string+=result_order_numbers[i]+"\n";
 				tracking_numbers_string+=result_tracking_numbers[i]+"\n";
 			}
+		}
+		else{
+			for(i=0;i<order_check.length;i++){
+				var result_order_numbers=new Array,result_tracking_numbers=new Array;
+				if(orders.order_numbers.indexOf(order_check[i])!='-1'){
+					position=orders.order_numbers.indexOf(order_check[i]);						
+					result_order_numbers[i]=orders.order_numbers[position];
+					result_tracking_numbers[i]=orders.tracking_numbers[position];
+				}
+				else {
+					result_order_numbers[i]="未找到订单号";
+					result_tracking_numbers[i]="未找到快递单号";
+				}
+				order_numbers_string+=result_order_numbers[i]+"\n";
+				tracking_numbers_string+=result_tracking_numbers[i]+"\n";
+			}
+		}
+		
 		var result_order_numbers=document.getElementById('result_order_numbers');
 		result_order_numbers.value=order_numbers_string;
 		localStorage.order_numbers_string=order_numbers_string;
