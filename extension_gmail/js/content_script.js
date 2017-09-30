@@ -9,9 +9,12 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
         //order_emails=JSON.stringify(order_emails);
         p=/\>(\d{3}\-\d{7}\-\d{7})\</gi;//match rder_numbers
         order_numbers=string.match(p);
+        console.log(order_numbers);
         //order_numbers=JSON.stringify(order_numbers);
-        p=/\s\d{12}\./gi;//match order tracking_numbers
+        var string=string_tag[0].innerText;
+        p=/\d{12}/gi;//match order tracking_numbers
         order_tracking_numbers=string.match(p);
+        console.log(order_tracking_numbers);
         //order_tracking_numbers=JSON.stringify(order_tracking_numbers);
         orders={emails:order_emails,order_numbers:order_numbers,tracking_numbers:order_tracking_numbers};
         sendResponse(orders);

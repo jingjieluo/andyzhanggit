@@ -10,7 +10,7 @@ gmail_test.onclick=function(){
 		for(i=0;i<orders.order_numbers.length;i++){	
 			orders.emails[i]=orders.emails[i].replace(/id="/gi,"");
 			orders.order_numbers[i]=orders.order_numbers[i].replace(/\>|\</gi,"");
-			orders.tracking_numbers[i]=orders.tracking_numbers[i].replace(/\./gi,"");
+			orders.tracking_numbers[i]=orders.tracking_numbers[i];
 		}
 		var check_string=$("#email_check").val();
 		localStorage.email_check=check_string;
