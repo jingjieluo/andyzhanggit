@@ -89,42 +89,7 @@ jd_sum.onclick=function(){
 		);
 	}
 
-/*
-//amazon gift card code cut
-var code_cut=document.getElementById('gc_cut');
-code_cut.onclick=string_cut;
-function string_cut()
-{
-var string=document.getElementById("email_check").value;
-if(string.match(/\w{4}\-\w{6}\-\w{5}/g)!=null) p=/\w{4}\-\w{6}\-\w{5}/g;
-	else { 
-		if(string.match(/\w{4}\-\w{6}\-\w{4}/g)!=null) p=/\w{4}\-\w{6}\-\w{4}/g;
-			else p=/\w{4}\-\w{4}\-\w{4}\-\w{4}/g
-	}
-var string_array=string.match(p);
-var code_cut="";
-for(var i=0;i<string_array.length;i++){
-  	code_cut+=string_array[i]+"\n";
-  	}
-document.getElementById("result_order_numbers").value=code_cut;
-  //document.getElementById("string").select();
-  //document.execCommand("Copy");
-  //alert("礼品卡已经复制到剪切板");
-}
 
-//order shipped emails
-var tracking_check=document.getElementById('amazon_us_tracking');
-tracking_check.onclick=function(){
-	bgPage.trackCheck(function(orders)){
-		for(i=0;i<orders.length;i++){
-			
-		}
-		var result_order_numbers=document.getElementById('result_order_numbers');
-		result_order_numbers.value=orders.;
-		var result_tracking_numbers=document.getElementById('result_tracking_numbers');
-		result_tracking_numbers.value=tracking_numbers_string;
-	}
-}*/
 // popup 动画效果
 $(document).ready(function () {
 	var activePos = $('.tabs-header .active').position();
@@ -205,3 +170,18 @@ $(document).ready(function () {
 		}, 1500);
 	});
 });
+
+//美亚快递单号查询
+var check_us=document.getElementById('check_us');
+check_us.onclick=function(){
+	bgPage.amazonUsCheck(function(orders){
+		ins=setInterval(function(){
+			if(!orders) console.log("waiting");
+				else {
+					console.log(orders);
+					//clearInterval(ins);
+				}
+		},2000);
+	});
+};
+

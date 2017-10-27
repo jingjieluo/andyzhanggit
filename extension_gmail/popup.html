@@ -2,7 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="js/jquery-3.2.1.min.js"	type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/default.css"/>
 <style>	
 *{
 	margin:0;
@@ -50,6 +50,12 @@ textarea{
 .clear{
 	clear:both
 }
+.check_us{
+	height: 100%;
+}
+.check_us input{
+	margin: 5px 5px;
+}
 </style>
 </head>
 <body>
@@ -84,7 +90,19 @@ textarea{
 				</div>
 				<div class="clear"></div>	
 			</div>
-			<div tab-id="2" class="tab">2.美亚快递单号查询</div>
+			<div tab-id="2" class="tab">
+				<div class="check_us">
+					<lable>请输入上次查询截止的运单号或账号：</lable><br/>
+					<input type="text" id="check_us_limit"/><br/>
+					<input type="button" value="获取美亚查询网址" id="check_us"/>
+					<div>
+					<label>查询结果：</label><br/>	
+					<textarea rows="10" cols="25" id="check_us_result"></textarea><br/>
+					<input type="button" value="复制查询结果" id="copy_check_us_result"/>
+					</div>
+				</div>
+
+			</div>
 			<div tab-id="3" class="tab">
 				<div class="tools">
 					<input type="button" value="计算京东卡余额" id="jd_balance_sum"/>
@@ -95,7 +113,7 @@ textarea{
 				<div class="clear"></div>	
 			</div>
 	   </div>
-	
+</div>	
 	<script src="js/popup.js"></script>
 	</body>
 </html>	

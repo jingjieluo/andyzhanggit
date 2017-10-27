@@ -39,47 +39,45 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
     }
 });
 
-/*
+
 //order shipped emails
-chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {    
-    if (request.greeting === "tracking_numbers check"){
-        var string=document.getElementsByClassName('Tm aeJ')[0].getElementsByClassName('Cp')[0].getElementsByTagName('tr');
-        var i=0;
-        var orders=new Array();
-        var order_emails=new Array(),order_numbers=new Array(),order_tracking_links=new Array();
-        var checkInterval = setInterval(function(){     
-                //if(i<string.length){
-                if(i<10){           
-                    if(window.location.hash != '#label/2%E5%8F%91%E8%B4%A7%E5%88%B0%E8%B4%A7'){
-                    if(document.title.indexOf('Your Amazon.com order')!=-1) {           
-                        var string_target=document.getElementsByClassName('Bs nH iY')[0].innerHTML;
-                        var p=/\w+\@\d{3}\.\w{3}/gi;//match order_emails
-                        order_emails[i]=string_target.match(p)[0];
-                        p=/(\d{3}\-\d{7}\-\d{7})\</gi;//match rder_numbers
-                        order_numbers[i]=string_target.match(p)[0].replace(/\>|\</gi,"");
-                        var string_link=document.getElementsByClassName('Bs nH iY')[0].getElementsByTagName('a');
-                        order_tracking_links[i]=string_link[4].href;//match order tracking_links
-                        history.back();
+chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.greeting === "amazon us tracking url get"){
+         function emailClick(int){
+            if(i>5) {
+                console.log("查询完毕");
+                orders={emails:order_emails,order_numbers:order_numbers,order_tracking_links:order_tracking_links};
+                console.log(orders);
+                window.clearInterval(int);
+                sendResponse("test");
+            }
+                else{
+                     if(location.hash=="#label/2%E5%8F%91%E8%B4%A7%E5%88%B0%E8%B4%A7"){
+                        var title=emails[i].getElementsByClassName("bog")[0].innerText;
+                        console.log(title);
+                        if(title.indexOf("Your Amazon.com order has shipped")>-1) emails[i].click();
+                            else i++;
+                    }
+                    else{
+                        string=document.getElementsByClassName('Bs nH iY')[0].innerHTML;
+                        p=/\w+\@\d{3}\.\w{3}/gi;//match order_emails
+                        order_emails[j]=string.match(p)[0];
+                        p=/(\d{3}\-\d{7}\-\d{7})\</gi;//match order_numbers
+                        order_numbers[j]=string.match(p)[0].replace(/\>|\</gi,"");
+                        order_tracking_links[j]=document.getElementsByClassName('CToWUd')[2].parentNode.href;
+                        console.log(order_emails[j]);
+                        console.log(order_numbers[j]);
+                        console.log(order_tracking_links[j]);
+                        console.log(j);
+                        window.history.back();
                         i++;
-                        console.log(order_emails);
-                         }
-                    else  {
-                            i++;
-                            history.back();
-                            }   
-                    }
-                    else {
-                        console.log('打开第'+(i+1)+'个邮件列表');
-                        string[i].click();
-                    }
-                }
-                else {
-                    clearInterval(checkInterval);
-                    orders={emails:order_emails,order_numbers:order_numbers,order_tracking_links:order_tracking_links};
-                    console.log(orders);
-                }
-        }, 2000);
-        sendResponse(orders);
+                        j++;
+                    }   
+                }          
+        }
+        var emails=document.getElementsByClassName("ae4 UI")[0].getElementsByTagName("tr");
+        var i=0,j=0,order_emails=new Array(),order_numbers=new Array(),order_tracking_links=new Array();
+        var ins=setInterval(function(){emailClick(ins)},2000);
     }
-});*/
+});
 
