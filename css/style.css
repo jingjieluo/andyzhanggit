@@ -1,0 +1,47 @@
+html { 
+	width: 960px;
+	background-color: #fdfcf8;
+	overflow:scroll;
+	overflow-x:hidden;
+	margin: 0 auto;
+	font-family:'PingFangSC','STHeiti','Microsoft YaHei','Helvetica','Arial',sans-serif;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: #fdfcf8;
+	width: 960px;
+	display: block;
+}
+#editor_get{
+	float:left;
+	width:730px;
+	margin:10px;
+}
+span {
+	margin:10px;
+}
+textarea{
+	margin: 10px;
+	font-family:'PingFangSC','STHeiti','Microsoft YaHei','Helvetica','Arial',sans-serif;
+}
+input{
+	margin: 10px 20px;
+	float:right;
+	font-size:16px;
+}
+#editor_infor{
+	float:left;
+	width:730px;
+	margin:10px;
+	height:100px;
+}
+#infor_show{
+	float:left;
+	width:730px;
+	margin:10px;
+	height:100px;
+}
+
