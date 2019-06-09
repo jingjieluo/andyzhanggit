@@ -45,3 +45,7 @@ input{
 	height:100px;
 }
 
+#datetime-choose{
+	float:none;
+	width:350px;
+}

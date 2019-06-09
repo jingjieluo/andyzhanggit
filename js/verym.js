@@ -23,3 +23,11 @@ console.log('test');
 // 	alert('test');
 // 	editorGet();
 // };
+
+window.onload=function(){
+	laydate.render({
+		elem: '#datetime-choose'
+		,type: 'datetime'
+		,range: true
+		}); 
+}
