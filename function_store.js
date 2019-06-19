@@ -14,3 +14,8 @@ function xmlCreat(){
         }
     }
 }
+
+//回调函数重新设置href
+$("a").attr("href", function(i,origValue){
+    return "http://www.baidu.com"+origValue; 
+  });
