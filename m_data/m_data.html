@@ -3,15 +3,22 @@
 <head>
     <meta charset="utf-8">
     <title>数据抓取和显示</title>
-    <link rel="stylesheet" tpye="text/css" href="/data_ana/css/style.css">
-    <script src="/data_ana/js/jquery-3.4.1.min.js"></script>
-    <script src="/data_ana/js/verym.js"></script>
-    <script src="/data_ana/js/laydate.js"></script>
+    <link rel="stylesheet" tpye="text/css" href="/data_ana_dev/css/style.css">
+    <!--<script src="/data_ana_dev/js/jquery-3.4.1.min.js"></script>-->
+    <script src="/data_ana_dev/js/verym.js"></script>
+    <script src="/data_ana_dev/js/laydate.js"></script>
+    <!--日期滑动控件-->
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script src="../lib/jquery.mousewheel.min.js"></script>
+    <script src="dateSliderDemo.js"></script>
+    <script src="demo.js"></script>
 </head>
 <body>
 <div>
     <span>日期时间范围：</span>
     <input type="text" id="datetime-choose">
 </div>
+<div id="slider"></div>
 </body>
 </html>
