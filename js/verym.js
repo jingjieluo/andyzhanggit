@@ -1,3 +1,6 @@
+window.onload=function(){
+	$("#slider").dateRangeSlider();
+};
 function editorGet(){
 	urlString=$('#urlString').val();
 	urlString=urlString.match(/\S+/g);
@@ -27,7 +30,7 @@ console.log('test');
 window.onload=function(){
 	laydate.render({
 		elem: '#datetime-choose'
-		,type: 'datetime'
+		,type: 'date'
 		,range: true
 		}); 
 }
